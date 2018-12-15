@@ -212,7 +212,7 @@ class DetectFakeNews(Data_processing):
         
         Return: accuracy, precision, recall, f1
         
-        >>> DetectFakeNews.evaluate()
+        >>> DetectFakeNews.evaluation()
         accuracy = 0.9943520552243489 
         precision, recall, f1 = (0.9944189387809027, 0.9943520552243489, 0.9943537111789301, None)
         """
@@ -227,7 +227,7 @@ class DetectFakeNews(Data_processing):
         # accuracy
         accuracy = self.model.score(test_sparse_feature_matrix, test_label_list)
         
-        # precision recall f1
+        # precision, recall, f1
         y_true = np.array(test_label_list)
         y_pred = np.array(predicted_value)
         evaluate = precision_recall_fscore_support(y_true, y_pred, average='weighted')
